@@ -1,0 +1,69 @@
+slip4->
+import numpy as np
+import matplotlib.pyplot as plt
+
+# Generate a random array of 50 integers
+random_data = np.random.randint(0, 100, 50)
+
+# Line Chart
+plt.figure(figsize=(10, 4))
+plt.plot(random_data, color='blue', marker='o')
+plt.title('Line Chart')
+plt.xlabel('Index')
+plt.ylabel('Value')
+plt.grid(True, linestyle='--', alpha=0.5)
+plt.show()
+
+# Scatter Plot
+plt.figure(figsize=(10, 4))
+plt.scatter(range(50), random_data, color='green')
+plt.title('Scatter Plot')
+plt.xlabel('Index')
+plt.ylabel('Value')
+plt.grid(True, linestyle='--', alpha=0.5)
+plt.show()
+
+# Histogram
+plt.figure(figsize=(10, 4))
+plt.hist(random_data, bins=10, color='purple', edgecolor='black')
+plt.title('Histogram')
+plt.xlabel('Value')
+plt.ylabel('Frequency')
+plt.grid(axis='y', alpha=0.5)
+plt.show()
+
+# Box Plot
+plt.figure(figsize=(10, 4))
+plt.boxplot(random_data, vert=False, patch_artist=True, boxprops=dict(facecolor='orange'))
+plt.title('Box Plot')
+plt.xlabel('Value')
+plt.grid(axis='x', linestyle='--', alpha=0.5)
+plt.show()
+===========================================================================================
+B->
+import pandas as pd
+
+# Read the CSV file
+data = pd.read_csv('User_Data.csv')
+
+# Print the shape of the data (number of rows and columns)
+print(f"Shape of the data: {data.shape}")
+
+# Print the number of rows and columns
+num_rows = data.shape[0]
+num_columns = data.shape[1]
+print(f"Number of rows: {num_rows}")
+print(f"Number of columns: {num_columns}")
+
+# Print the data types of each column
+print("Data types:")
+print(data.dtypes)
+
+# Print the feature names (column names)
+print("Feature names:")
+print(data.columns)
+
+# Print the description of the data
+print("Description:")
+print(data.describe())
+##############################################################################

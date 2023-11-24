@@ -1,0 +1,112 @@
+slip9
+Q.1) Write a PHP script for the following: Design a form having a text box and a drop down list
+containing any 3 separators(e.g. #, |, %, @, ! or comma) accept a strings from the user and also a
+separator.
+a. Split the string into separate words using the given separator.
+b. Replace all the occurrences of separator in the given string with some other separator.
+c. Find the last word in the given string.
+<!DOCTYPE html>
+<html>
+<head>
+    <title>String Operations</title>
+</head>
+<body>
+
+<form method="post" action="">
+    Enter a string: <input type="text" name="user_string" required><br>
+    Select a separator:
+    <select name="separator" required>
+        <option value="#">#</option>
+        <option value="|">|</option>
+        <option value="%">%</option>
+    </select><br>
+    <input type="submit" value="Submit">
+</form>
+
+<?php
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $user_string = $_POST["user_string"];
+    $separator = $_POST["separator"];
+
+    // a. Split the string into separate words using the given separator.
+    $words = explode($separator, $user_string);
+
+    // b. Replace all the occurrences of separator with another separator.
+    $new_separator = '*'; // Replace with any other separator
+    $modified_string = str_replace($separator, $new_separator, $user_string);
+
+    // c. Find the last word in the given string.
+    $last_word = end($words);
+
+    echo "<h2>Results:</h2>";
+    echo "a. Separate words: " . implode(", ", $words) . "<br>";
+    echo "b. Modified string: $modified_string<br>";
+    echo "c. Last word: $last_word<br>";
+}
+?>
+
+</body>
+</html>
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+slip9->
+import numpy as np
+import matplotlib.pyplot as plt
+
+# Generate a random array of 50 integers
+random_data = np.random.randint(0, 100, 50)
+
+# Line Chart
+plt.figure(figsize=(10, 4))
+plt.plot(random_data, color='blue', marker='o', linestyle='-', linewidth=2, markersize=8)
+plt.title('Line Chart', fontsize=14)
+plt.xlabel('Index', fontsize=12)
+plt.ylabel('Value', fontsize=12)
+plt.grid(True, linestyle='--', alpha=0.5)
+plt.show()
+
+# Scatter Plot
+plt.figure(figsize=(10, 4))
+plt.scatter(range(50), random_data, color='green', label='Data Points', s=50)
+plt.title('Scatter Plot', fontsize=14)
+plt.xlabel('Index', fontsize=12)
+plt.ylabel('Value', fontsize=12)
+plt.legend()
+plt.grid(True, linestyle='--', alpha=0.5)
+plt.show()
+=================================================================================
+B->
+import matplotlib.pyplot as plt
+
+# Create two lists representing subject names and marks
+subjects = ['Math', 'Science', 'English', 'History']
+marks = [85, 90, 75, 88]
+
+# Create a pie chart
+plt.figure(figsize=(8, 8))
+plt.pie(marks, labels=subjects, autopct='%1.1f%%', startangle=140, colors=['#ff9999','#66b3ff','#99ff99', '#ffcc99'])
+plt.title('Subject-wise Marks Distribution')
+plt.axis('equal')  # Equal aspect ratio ensures that pie is drawn as a circle.
+plt.show()
+=============================================================
+C->
+import pandas as pd
+
+# a) Describing the dataset
+data = pd.read_csv('winequality-red.csv')
+description = data.describe()
+
+# b) Shape of the dataset
+shape = data.shape
+
+# c) Display first 3 rows from dataset
+first_3_rows = data.head(3)
+
+print("a) Describing the dataset:")
+print(description)
+
+print("\nb) Shape of the dataset:")
+print(shape)
+
+print("\nc) Display first 3 rows from dataset:")
+print(first_3_rows)
+###########################################################################

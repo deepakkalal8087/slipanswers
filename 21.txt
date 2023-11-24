@@ -1,0 +1,154 @@
+slip21
+Q.1) Create an array of 15 high temperatures, approximating the weather for a spring month,
+then find the average high temp, the five warmest high temps Display the result on the browser
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Spring Weather Stats</title>
+</head>
+<body>
+
+<?php
+// Create an array of 15 high temperatures
+$highTemperatures = [18, 20, 22, 25, 23, 21, 19, 24, 26, 28, 27, 22, 20, 25, 26];
+
+// Calculate the average high temperature
+$averageHighTemp = array_sum($highTemperatures) / count($highTemperatures);
+
+// Find the five warmest high temperatures
+arsort($highTemperatures);
+$fiveWarmestTemps = array_slice($highTemperatures, 0, 5);
+
+// Display the results on the browser
+echo "<h2>Spring Weather Stats</h2>";
+echo "<p>Average High Temperature: " . number_format($averageHighTemp, 2) . "°C</p>";
+echo "<p>Five Warmest High Temperatures: " . implode('°C, ', $fiveWarmestTemps) . "°C</p>";
+?>
+
+</body>
+</html>
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+slip21
+import pandas as pd
+import matplotlib.pyplot as plt
+
+# Import the dataset
+iris_data = pd.read_csv('iris.csv')
+
+# Get the frequency of the three species
+species_frequency = iris_data['species'].value_counts()
+
+# Create a bar plot
+plt.figure(figsize=(8, 6))
+species_frequency.plot(kind='bar', color=['blue', 'green', 'red'])
+plt.title('Frequency of Iris Species')
+plt.xlabel('Species')
+plt.ylabel('Frequency')
+plt.xticks(rotation=0)
+plt.show()
+==============================================================================
+B->
+import pandas as pd
+import matplotlib.pyplot as plt
+
+# Import the dataset
+iris_data = pd.read_csv('iris.csv')
+
+# Get the frequency of the three species
+species_frequency = iris_data['species'].value_counts()
+
+# Create a bar plot
+plt.figure(figsize=(8, 6))
+species_frequency.plot(kind='bar', color=['blue', 'green', 'red'])
+plt.title('Frequency of Iris Species')
+plt.xlabel('Species')
+plt.ylabel('Frequency')
+plt.xticks(rotation=0)
+plt.show()
+#################################################################
+slip22
+Q.1) Write a menu driven program to perform the following queue related operations
+a) Insert an element in queue
+b) Delete an element from queue
+c) Display the contents of queue
+<?php
+
+class Queue
+{
+    private $queue;
+
+    public function __construct()
+    {
+        $this->queue = [];
+    }
+
+    public function enqueue($element)
+    {
+        $this->queue[] = $element;
+        echo "Element $element enqueued to the queue.<br>";
+    }
+
+    public function dequeue()
+    {
+        if (!$this->isEmpty()) {
+            $removedElement = array_shift($this->queue);
+            echo "Element $removedElement dequeued from the queue.<br>";
+        } else {
+            echo "Queue is empty. Cannot dequeue.<br>";
+        }
+    }
+
+    public function display()
+    {
+        if (!$this->isEmpty()) {
+            echo "Queue Contents: " . implode(', ', $this->queue) . "<br>";
+        } else {
+            echo "Queue is empty.<br>";
+        }
+    }
+
+    public function isEmpty()
+    {
+        return empty($this->queue);
+    }
+}
+
+function main()
+{
+    $queue = new Queue();
+
+    while (true) {
+        echo "<br>Queue Operations:<br>";
+        echo "1. Enqueue<br>";
+        echo "2. Dequeue<br>";
+        echo "3. Display<br>";
+        echo "4. Exit<br>";
+
+        $choice = readline("Enter your choice (1/2/3/4): ");
+
+        switch ($choice) {
+            case '1':
+                $element = readline("Enter the element to enqueue: ");
+                $queue->enqueue($element);
+                break;
+            case '2':
+                $queue->dequeue();
+                break;
+            case '3':
+                $queue->display();
+                break;
+            case '4':
+                echo "Exiting the program. Goodbye!<br>";
+                exit();
+            default:
+                echo "Invalid choice. Please enter a valid option (1/2/3/4).<br>";
+        }
+    }
+}
+
+main();
+
+?>
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@

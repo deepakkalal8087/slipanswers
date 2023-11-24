@@ -1,0 +1,115 @@
+slip12->
+import numpy as np
+import matplotlib.pyplot as plt
+
+# Generate a random array of 50 integers
+random_data = np.random.randint(0, 100, 50)
+
+# Line Chart
+plt.figure(figsize=(10, 4))
+plt.plot(random_data, color='blue', marker='o', linestyle='-', linewidth=2, markersize=8)
+plt.title('Line Chart', fontsize=14)
+plt.xlabel('Index', fontsize=12)
+plt.ylabel('Value', fontsize=12)
+plt.grid(True, linestyle='--', alpha=0.5)
+plt.show()
+
+# Scatter Plot
+plt.figure(figsize=(10, 4))
+plt.scatter(range(50), random_data, color='green', label='Data Points', s=50)
+plt.title('Scatter Plot', fontsize=14)
+plt.xlabel('Index', fontsize=12)
+plt.ylabel('Value', fontsize=12)
+plt.legend()
+plt.grid(True, linestyle='--', alpha=0.5)
+plt.show()
+
+# Histogram
+plt.figure(figsize=(10, 4))
+plt.hist(random_data, bins=10, color='purple', edgecolor='black', alpha=0.7)
+plt.title('Histogram', fontsize=14)
+plt.xlabel('Value', fontsize=12)
+plt.ylabel('Frequency', fontsize=12)
+plt.grid(axis='y', alpha=0.5)
+plt.show()
+
+# Box Plot
+plt.figure(figsize=(10, 4))
+plt.boxplot(random_data, vert=False, patch_artist=True, boxprops=dict(facecolor='orange'))
+plt.title('Box Plot', fontsize=14)
+plt.xlabel('Value', fontsize=12)
+plt.grid(axis='x', linestyle='--', alpha=0.5)
+plt.show()
+================================================================================================
+B->
+import pandas as pd
+
+# Create a DataFrame
+data = {
+    'name': ['John', 'Jane', 'Bob', 'Alice', 'Eve', 'John', 'Bob', 'Jane', 'Eve', 'Alice', '', None, 'Bob'],
+    'salary': [50000, 60000, None, 65000, 70000, 50000, 55000, 60000, None, 70000, 75000, 80000, 55000],
+    'department': ['HR', 'IT', 'Sales', 'HR', 'IT', 'HR', 'Sales', 'IT', 'IT', 'Sales', 'IT', 'HR', 'Sales']
+}
+
+df = pd.DataFrame(data)
+
+# Print original DataFrame
+print("Original DataFrame:")
+print(df)
+
+# Drop null and empty values
+df = df.dropna(subset=['name', 'salary', 'department']).replace('', None)
+
+# Print modified DataFrame
+print("\nModified DataFrame:")
+print(df)
+################################################################################
+slip13
+Write a PHP script to create a chess board using CSS on table cells.
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Chessboard</title>
+    <style>
+        .chessboard {
+            border-collapse: collapse;
+            border: 2px solid #000;
+            margin: auto;
+        }
+
+        .chessboard td {
+            width: 50px;
+            height: 50px;
+            text-align: center;
+            font-size: 20px;
+        }
+
+        .white {
+            background-color: #f0d9b5;
+        }
+
+        .black {
+            background-color: #b58863;
+        }
+    </style>
+</head>
+<body>
+
+<table class="chessboard">
+    <?php
+    $size = 8; // 8x8 chessboard
+    for ($row = 1; $row <= $size; $row++) {
+        echo "<tr>";
+        for ($col = 1; $col <= $size; $col++) {
+            $class = ($row + $col) % 2 == 0 ? "white" : "black";
+            echo "<td class='$class'></td>";
+        }
+        echo "</tr>";
+    }
+    ?>
+</table>
+
+</body>
+</html>
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@

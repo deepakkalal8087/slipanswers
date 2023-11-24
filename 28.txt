@@ -1,0 +1,70 @@
+slip28
+Q.1) Write a program to read a flat file “student.dat”, calculate the percentage and display the
+data from file in tabular format.(Student.dat file contains rollno, name, OS, WT, DS, Python,
+Java, CN )
+<?php
+
+// Define a function to calculate percentage
+function calculate_percentage($os, $wt, $ds, $python, $java, $cn) {
+    $total_marks = $os + $wt + $ds + $python + $java + $cn;
+    $percentage = ($total_marks / 600) * 100;
+    return round($percentage, 2);
+}
+
+// Read the data from the file
+$file_path = 'student.dat';
+$file_content = file($file_path, FILE_IGNORE_NEW_LINES);
+
+// Display the data in tabular format
+echo "<table border='1'>";
+echo "<tr><th>Roll No</th><th>Name</th><th>OS</th><th>WT</th><th>DS</th><th>Python</th><th>Java</th><th>CN</th><th>Percentage</th></tr>";
+
+foreach ($file_content as $line) {
+    $data = explode(',', $line);
+    list($roll_no, $name, $os, $wt, $ds, $python, $java, $cn) = array_map('intval', $data);
+
+    $percentage = calculate_percentage($os, $wt, $ds, $python, $java, $cn);
+
+    echo "<tr><td>$roll_no</td><td>$name</td><td>$os</td><td>$wt</td><td>$ds</td><td>$python</td><td>$java</td><td>$cn</td><td>$percentage%</td></tr>";
+}
+
+echo "</table>";
+
+?>
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+import pandas as pd
+
+# Task 1: Create a dataframe with columns name, age, and percentage
+data = {'name': ['John', 'Alice', 'Bob', 'Charlie', 'Emma', 'David', 'Eva', 'Frank', 'Grace', 'Henry'],
+        'age': [25, 22, 30, 28, 23, 35, 26, 31, 29, 24],
+        'percentage': [85.5, 92.0, 78.3, 88.6, 94.2, 76.8, 89.5, 82.7, 91.1, 87.4]}
+
+df = pd.DataFrame(data)
+
+# Task 2: Print shape, number of rows/columns, data types, feature names, and data description
+print("\nTask 2:")
+print("Shape of the dataframe:", df.shape)
+print("Number of rows and columns:", df.shape[0], "rows x", df.shape[1], "columns")
+print("\nData types of columns:\n", df.dtypes)
+print("\nFeature names:\n", df.columns)
+print("\nData description:\n", df.describe())
+
+# Task 3: View basic statistical details of the data
+print("\nTask 3:")
+print("Basic statistical details:\n", df.describe())
+
+# Task 4: Add 5 rows with duplicate values and missing values, add a column 'remarks'
+additional_data = {'name': ['John', 'Alice', 'Bob', 'Charlie', 'Emma'],
+                   'age': [25, 22, 30, None, 23],
+                   'percentage': [85.5, 92.0, 78.3, 88.6, None],
+                   'remarks': [None, None, None, None, None]}
+
+df_additional = pd.DataFrame(additional_data)
+
+df = pd.concat([df, df_additional], ignore_index=True)
+
+# Display the data
+print("\nTask 4:")
+print("Updated dataframe with duplicates and missing values:\n", df)
+
+#####################################################################################

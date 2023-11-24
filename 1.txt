@@ -1,0 +1,86 @@
+Slip 1 
+Slip 1 
+Q.1) Write the HTML code for generating the form as shown below. Apply the internal 
+CSS to following form to change the font size of the heading to 6pt and change the color 
+to red and also change the background color to yellow 
+ 
+ 
+<!DOCTYPE html> 
+<head> 
+ <style> 
+ .form { 
+ 
+ height:300px; 
+ width:300px; 
+ text-align: center; 
+ background-color: rgb(87, 207, 240); 
+ } 
+ button { 
+ background: rgb(11, 190, 59); 
+ } 
+ #butt { 
+ background:rgb(64, 136, 231); 
+ 
+ } 
+ 
+ 
+ </style> 
+ <title>Project Management</title> 
+</head> 
+<body><center> 
+ <h2><u>Project Management</u></h2><br> 
+ <div class="form"> 
+ 
+ 
+ <label for="name"><b>Progect Name</b></label> 
+ <input type="text" placeholder="Project Name"><br><br> 
+ 
+ <label for="name"><b> Assigned to</b></label> 
+ <select> 
+ <option value="volvo">Er Merry Pelision</option> 
+ </select><br><br> 
+ 
+ <label for="start"><b>Start date:</b></label> 
+ <input type="date" name="trip-start" value="2018-07-22" min="2018-01-01" 
+max="2023-10-09" /> <br><br> 
+ 
+ <label for="start"><b>End date:</b></label> 
+ <input type="date" name="trip-start" value="2018-07-22" min="2018-01-01" 
+max="2018-12-31" /> <br><br> 
+ 
+ <label for="name"><b> Priority</b></label> 
+ <input type="radio"> 
+ <label for="html"><b>High</b></label> 
+ <input type="radio"> 
+ <label for="html"><b>Average</b></label> 
+ <input type="radio"> 
+ <label for="html"><b>Low</b></label> 
+ <br><br> 
+ 
+ <label for="description" id="desc"><b>Description</b></label> 
+ <input type="text" ><br><br> 
+ 
+ <button type="button">Submit</button> 
+ <button type="butt" id="butt"> Clear</button> 
+ 
+ </form> 
+ </div> 
+</center> 
+</body> 
+</html> 
+2 A)Write a Python program to create a Pie plot to get the frequency of the three 
+species of the Iris data (Use iris.csv) 
+import pandas as pd
+import matplotlib.pyplot as plt
+iris=pd.read_csv("iris.csv")
+ax=plt.subplots(1,1,figsize=(10,8))
+iris['Species'].value_counts().plot.pie(explode=[0.1,0.1,0.1],autopct='%1.1f%%',shadow=True,fi
+gsize=(10,8))
+plt.title("Iris Species %")
+plt.show()
+ 
+2 B)Write a Python program to view basic statistical details of the data.(Use 
+wineequality-red.csv) 
+import pandas as pd
+data = pd.read_csv("winequality-red.csv")
+print(data.describe())

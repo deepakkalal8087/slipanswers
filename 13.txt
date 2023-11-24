@@ -1,0 +1,39 @@
+slip13->
+import pandas as pd
+import matplotlib.pyplot as plt
+
+# Read the CSV file
+iris_data = pd.read_csv('iris.csv')
+
+# Define colors for each species
+colors = {'setosa': 'red', 'versicolor': 'green', 'virginica': 'blue'}
+
+# Create a scatter plot
+plt.figure(figsize=(10, 6))
+
+for species, color in colors.items():
+    species_data = iris_data[iris_data['species'] == species]
+    plt.scatter(species_data['petal_length'], species_data['petal_width'], c=color, label=species)
+
+plt.title('Relationship between Petal Length and Petal Width')
+plt.xlabel('Petal Length (cm)')
+plt.ylabel('Petal Width (cm)')
+plt.legend()
+plt.grid(True, linestyle='--', alpha=0.5)
+plt.show()
+========================================================
+B->
+import numpy as np
+
+# Assuming you have a flattened array 'arr'
+# If you have a different array, replace 'arr' with your array
+
+# Example flattened array
+arr = np.array([1, 5, 3, 8, 2, 6, 7, 4])
+
+# Find maximum and minimum values
+max_value = np.max(arr)
+min_value = np.min(arr)
+
+print(f"Maximum value: {max_value}")
+print(f"Minimum value: {min_value}")

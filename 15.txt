@@ -1,0 +1,110 @@
+slip15
+Q.1) Design a form to accept string from the user and perform the following operations
+a. To select first 5 words from the string
+b. Convert the given string to lowercase and then to Title case.
+c. Pad the given string with “*” from left and right both the sides.
+d. Remove the leading whitespaces from the given string.
+e. Find the reverse of given string.
+<!DOCTYPE html>
+<html>
+<head>
+    <title>String Operations</title>
+</head>
+<body>
+
+<form method="post" action="">
+    Enter a string: <input type="text" name="user_string" required><br>
+    <input type="submit" value="Submit">
+</form>
+
+<?php
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $user_string = $_POST["user_string"];
+
+    // a. To select first 5 words from the string
+    $words = explode(" ", $user_string);
+    $first_five_words = array_slice($words, 0, 5);
+
+    // b. Convert the given string to lowercase and then to Title case.
+    $lowercase_string = strtolower($user_string);
+    $titlecase_string = ucwords($lowercase_string);
+
+    // c. Pad the given string with "*" from left and right both the sides.
+    $padded_string = "*" . $user_string . "*";
+
+    // d. Remove the leading whitespaces from the given string.
+    $trimmed_string = trim($user_string);
+
+    // e. Find the reverse of given string.
+    $reversed_string = strrev($user_string);
+
+    echo "<h2>Result:</h2>";
+    echo "a. First 5 words: " . implode(" ", $first_five_words) . "<br>";
+    echo "b. Lowercase: $lowercase_string<br>";
+    echo "   Titlecase: $titlecase_string<br>";
+    echo "c. Padded string: $padded_string<br>";
+    echo "d. Trimmed string: $trimmed_string<br>";
+    echo "e. Reversed string: $reversed_string<br>";
+}
+?>
+
+</body>
+</html>
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+slip15->
+import numpy as np
+import matplotlib.pyplot as plt
+
+# Generate a random array of 50 integers
+random_data = np.random.randint(0, 100, 50)
+
+# Line Chart
+plt.figure(figsize=(10, 4))
+plt.plot(random_data, color='blue', marker='o', linestyle='-', linewidth=2, markersize=8)
+plt.title('Line Chart', fontsize=14)
+plt.xlabel('Index', fontsize=12)
+plt.ylabel('Value', fontsize=12)
+plt.grid(True, linestyle='--', alpha=0.5)
+plt.show()
+
+# Scatter Plot
+plt.figure(figsize=(10, 4))
+plt.scatter(range(50), random_data, color='green', label='Data Points', s=50)
+plt.title('Scatter Plot', fontsize=14)
+plt.xlabel('Index', fontsize=12)
+plt.ylabel('Value', fontsize=12)
+plt.legend()
+plt.grid(True, linestyle='--', alpha=0.5)
+plt.show()
+
+# Histogram
+plt.figure(figsize=(10, 4))
+plt.hist(random_data, bins=10, color='purple', edgecolor='black', alpha=0.7)
+plt.title('Histogram', fontsize=14)
+plt.xlabel('Value', fontsize=12)
+plt.ylabel('Frequency', fontsize=12)
+plt.grid(axis='y', alpha=0.5)
+plt.show()
+
+# Box Plot
+plt.figure(figsize=(10, 4))
+plt.boxplot(random_data, vert=False, patch_artist=True, boxprops=dict(facecolor='orange'))
+plt.title('Box Plot', fontsize=14)
+plt.xlabel('Value', fontsize=12)
+plt.grid(axis='x', linestyle='--', alpha=0.5)
+plt.show()
+===============================================================
+B->
+import matplotlib.pyplot as plt
+
+# Create two lists representing subject names and marks
+subjects = ['Math', 'Science', 'English', 'History']
+marks = [85, 90, 75, 88]
+
+# Create a pie chart
+plt.figure(figsize=(8, 8))
+plt.pie(marks, labels=subjects, autopct='%1.1f%%', startangle=140, colors=['#ff9999','#66b3ff','#99ff99', '#ffcc99'])
+plt.title('Subject-wise Marks Distribution')
+plt.axis('equal')  # Equal aspect ratio ensures that pie is drawn as a circle.
+plt.show()
+###########################################################################################
